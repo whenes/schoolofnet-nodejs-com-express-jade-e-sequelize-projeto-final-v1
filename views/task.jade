@@ -1,0 +1,17 @@
+extends layout 
+
+block content 
+  div(class="row")
+    div(class="col s6 offset-s3 panel")
+      div(class="col s12 center")
+        h2= 'Task - ' + task.name
+        a(href="/tasks", class="btn-flat teal") Tasks
+      table 
+        thead 
+          tr 
+            th Name 
+            th Done
+        tbody 
+          tr 
+            td= task.name 
+            td= task.done == 'true' ? 'Yes':'No'

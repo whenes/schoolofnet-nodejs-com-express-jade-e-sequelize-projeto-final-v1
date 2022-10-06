@@ -1,0 +1,22 @@
+extends layout 
+
+block content 
+  div(class="row")
+    div(class="col s5 offset-s3 panel")
+      div(class="col s12 center")
+        h2 Update task
+        a(href="/tasks", class="btn-flat teal") Tasks
+      form(method="POST", action="/tasks/edit/" + task.id)
+        input(type="hidden", name="_method", value="PUT")
+        div(class="input-field col s12")
+          input(type="text", name="name", placeholder="Name" value=task.name)
+        div(class="input-field col s12")
+          select(name="done", class="browser-default")
+            if task.done == "true"
+              option(selected, value="true") Yes
+              option(value="false") No
+            else 
+              option(value="true") Yes
+              option(selected, value="false") No
+        div(class="input-field col s6")
+          button(type="submit") Save
